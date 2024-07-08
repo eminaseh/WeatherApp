@@ -1,0 +1,41 @@
+{% extends 'vrijemeApp/main.html' %}
+
+{% block content %}
+
+                <div class="forma-naslov">
+                    <h2>Izaberi grad</h2>
+                </div>
+                <form method="post">
+                    <div class="forma">
+                        {% csrf_token %}
+                    {{ form.naziv }}
+                    <button type="submit" class="dugme">DODAJ</button>
+                    </div>
+                    <div class="poruka-grska-uspjeh">
+                    {% if poruka %}
+                        <div class="{{ poruka_klasa }}">{{ poruka }}</div>
+                    {% endif %}
+                    </div>
+                </form>
+                {% for grad_vrijeme in vrijeme_podaci %}
+                <div class="vrijeme-kontejner">
+                    <div class="vrijeme-slika-kontejner">
+                         <img class="vrijeme-slika" src="http://openweathermap.org/img/w/{{ grad_vrijeme.ikona }}.png" alt="slika">
+                    </div>
+                    <div class="vrijeme-info">
+                    <div class="grad-naziv">{{ grad_vrijeme.grad }}</div>
+                    <div class="drzava-naziv">{{ grad_vrijeme.drzava }}</div>
+                    <div class="temperatura">{{ grad_vrijeme.temperatura }}°C</div>
+                    <div class="vrijeme-opis">{{ grad_vrijeme.opis}}</div>
+                    </div>
+                    {% if request.user.is_staff %}
+                        <div>
+                        <a href="{% url 'izbrisi_grad' grad_vrijeme.grad %}">
+                           <button class="dugme-izbrisi">IZBRIŠI GRAD</button>
+                        </a>
+                    </div>
+                    {% endif %}
+
+                </div>
+                {% endfor %}
+{% endblock %}

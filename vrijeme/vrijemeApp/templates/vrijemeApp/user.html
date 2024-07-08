@@ -1,0 +1,34 @@
+{% extends 'vrijemeApp/main.html' %}
+
+{% block content %}
+
+ <div class="forma-login">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <ul class="forma-login-lista">
+            <li>
+                <h3>UREDI KORISNIČKI RAČUN</h3>
+            </li>
+            <li>
+                <label class="labela">Ime</label>
+                {{form.ime}}
+            </li>
+            <li>
+                <label class="labela">Email</label>
+                 {{form.email}}
+            </li>
+            <li>
+                <label class="labela">Grad</label>
+                 {{form.grad_naziv}}
+            </li>
+
+            <li>
+                <button type="submit" class="login-dugme">POTVRDI PROMJENE</button>
+            </li>
+        </ul>
+    </form>
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'vrijemeApp/main.html' %}
+
+{% block content %}
+
+            <form method="post">
+                    <div class="forma">
+                        {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="dugme">IZABERI</button>
+                    </div>
+                </form>
+
+
+            <div class="grad-kontejner">
+
+                <div class="vrijeme-kontejner">
+                    <div class="vrijeme-slika-kontejner">
+                        <img class="vrijeme-slika" src="http://openweathermap.org/img/w/{{ grad_vrijeme.ikona }}.png" alt="slika">
+                    </div>
+                    <div class="vrijeme-info">
+                        <div class="grad-naziv">{{ grad_vrijeme.grad }}</div>
+                        <div class="drzava-naziv">BA</div>
+                        <div class="temperatura">{{ grad_vrijeme.temperatura }}°C</div>
+                        <div class="vrijeme-opis">{{ grad_vrijeme.opis }}</div>
+                    </div>
+                </div>
+
+                <div class="vrijeme-kontejner">
+                {% for data in izabranaPrognoza %}
+
+
+                    <div class="vrijeme-slika-kontejner">
+                        <img class="vrijeme-slika" src="http://openweathermap.org/img/w/{{ data.ikona }}.png" alt="slika">
+                    </div>
+                    <div class="vrijeme-info">
+                        <div class="temperatura-vrijeme">{{data.tacno_vrijeme}}</div>
+                        <div class="temperatura">{{data.temp}}°C</div>
+                        <div class="vrijeme-opis">{{data.opis}}</div>
+                    </div>
+
+                {% endfor %}
+                </div>
+
+
+                <div class="vrijeme-kontejner">
+                    <div class="vrijeme-info-ikona">
+                        <div class="vrijeme-dnevni-detalji"><i class="material-icons">mood</i></div>
+                        <div class="vrijeme-dnevni-detalji"><i class="material-icons">toys</i></div>
+                        <div class="vrijeme-dnevni-detalji"><i class="material-icons">opacity</i></div>
+                    </div>
+
+                    <div class="vrijeme-info">
+                        <div class="vrijeme-dnevni-detalji">Osjeti se kao {{ grad_vrijeme.osjeti_se }}°C</div>
+                        <div class="vrijeme-dnevni-detalji">Max.brzina vjetra {{ grad_vrijeme.vjetar }} km/h</div>
+                        <div class="vrijeme-dnevni-detalji">Vlažnost zraka {{ grad_vrijeme.vlaznost_zraka }}%</div>
+                    </div>
+
+                </div>
+
+                <div class="vrijeme-kontejner">
+                    <div class="vrijeme-info-ikona">
+                        <div class="vrijeme-dnevni-detalji"><i class="material-icons">wb_sunny</i></div>
+                        <div class="vrijeme-dnevni-detalji"><i class="material-icons">nights_stay</i></div>
+
+                    </div>
+
+                    <div class="vrijeme-info">
+                        <div class="vrijeme-dnevni-detalji">Izlazak sunca {{ grad_vrijeme.izlazak_sunca }}</div>
+                        <div class="vrijeme-dnevni-detalji">Zalazak sunca {{ grad_vrijeme.zalazak_sunca }}</div>
+                    </div>
+
+                    <div class="vrijeme-info">
+                        <div class="vrijeme-dnevni-detalji">Najviša temperatura će biti {{ grad_vrijeme.najvisa_temperatura }}°C</div>
+                        <div class="vrijeme-dnevni-detalji">Najniža temperatura će biti {{ grad_vrijeme.najniza_temperatura }}°C</div>
+                    </div>
+
+                </div>
+            </div>
+
+{% endblock %}

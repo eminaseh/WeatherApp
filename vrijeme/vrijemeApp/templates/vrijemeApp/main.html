@@ -1,0 +1,47 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vrijeme</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/stil.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+<body>
+<div class="grid-kontejner">
+    <header class="header">
+        <div class="logo">
+            <a href="/">VREMENSKA PROGNOZA</a>
+        </div>
+        <div class="meni">
+            {% if request.user.is_staff %}
+            <a href="{% url 'gradovi' %}">GRADOVI</a>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'profil' %}">{{request.user}}</a>
+            <a href="{% url 'odjava' %}">ODJAVI SE</a>
+            {% endif %}
+
+
+
+        </div>
+    </header>
+    <main class="main" >
+        <div class="main-sadrzaj">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div>
+            Copyright &copy; 2020 | Vrijeme
+        </div>
+
+    </footer>
+</div>
+
+</body>
+</html>

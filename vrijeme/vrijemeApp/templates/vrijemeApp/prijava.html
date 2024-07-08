@@ -1,0 +1,38 @@
+{% extends 'vrijemeApp/main.html' %}
+
+{% block content %}
+
+    <div class="forma-login">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <ul class="forma-login-lista">
+            <li>
+                <h3>PRIJAVI SE</h3>
+            </li>
+             <li>
+                <label class="labela" >Korisničko ime</label>
+                <input class="forma-login-input" type="text" name="username" />
+            </li>
+            <li>
+                <label class="labela" >Lozinka</label>
+                <input class="forma-login-input" type="password" name="password" />
+            </li>
+            <li>
+                <button type="submit" class="login-dugme">PRIJAVI SE</button>
+            </li>
+             {% for message in messages%}
+            <li>
+                <p id="messages" class="labela">{{message}}</p>
+            </li>
+            {% endfor %}
+            <li>
+                Nemate račun?
+            </li>
+            <li>
+                <a href="{% url 'registracija' %}" class="registracija-dugme">REGISTRUJ SE</a>
+            </li>
+        </ul>
+    </form>
+  </div>
+
+{% endblock %}

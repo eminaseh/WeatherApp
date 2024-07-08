@@ -1,0 +1,262 @@
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    font: 1.6rem Helvetica;
+    margin: 0;
+    background-color: #2a5298;
+    height: 100vh;
+}
+#root{
+    height: 100%;
+}
+.grid-kontejner{
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem 1fr 10rem;
+    height: 100%;
+}
+/* Header ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.header{
+    grid-area: header;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100%;
+}
+.logo a{
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    text-decoration: none;
+    margin-left: 3rem;
+    justify-content: center;
+}
+.meni, .meni a{
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+/* Main /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.main{
+    grid-area: main;
+}
+/* Footer //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.footer{
+    grid-area: footer;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* Forma //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.forma-naslov{
+    text-align: center;
+    padding-top: 2rem;
+    color: white;
+}
+label{
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+}
+.forma {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+}
+.forma input {
+    vertical-align: middle;
+    background-color: #fff;
+    border: 0.1rem solid midnightblue;
+    padding: 2rem;
+    width: 20%;
+}
+.dugme {
+    padding: 2rem;
+    background-color: #1e3c72;
+    color: white;
+    border: 0.1rem solid midnightblue;
+    cursor: pointer;
+    font-weight: bold;
+}
+@media (max-width: 800px) {
+    .forma input, .dugme {
+        width: 90%;
+    }
+    .forma {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+.poruka-grska-uspjeh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    color: white;
+    font-size: 2rem;
+}
+.greska{
+    background-color: orange;
+    color: #1e3c72;
+    width: 45rem;
+    padding: 2rem;
+}
+.uspjeh{
+    background-color: powderblue;
+    color: #1e3c72;
+    width: 45rem;
+    padding: 2rem;
+}
+/* Informacije o vremenu ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.vrijeme-kontejner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 18rem;
+    padding: 1rem;
+    color: white;
+}
+.vrijeme-slika-kontejner{
+    width: 10rem;
+    justify-content: center;
+    align-items:center;
+}
+.vrijeme-slika {
+    max-width: 10rem;
+    max-height: 10rem;
+}
+.vrijeme-info {
+    flex-direction: column;
+    width: 30rem;
+}
+.grad-naziv{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.drzava-naziv{
+    font-size: 2rem;
+}
+.temperatura{
+    font-size: 3rem;
+}
+.vrijeme-opis{
+    font-size: 2rem;
+}
+.temperatura-vrijeme{
+    font-size: 2rem;
+}
+.vrijeme-naslov{
+    font-size: 2.5rem;
+    text-align: center;
+    justify-content: center;
+    color: white;
+
+    font-weight: bold;
+    margin-top: 2rem;
+}
+.vrijeme-dnevni-detalji{
+    font-size: 2rem;
+    padding: 0.3rem;
+}
+.material-icons{
+   font-size: 2rem;
+}
+.vrijeme-info-ikona{
+    flex-direction: column;
+    width: 10rem;
+}
+.dugme-izbrisi{
+    color: #1e3c72;
+    background-color: white;
+    padding: 2rem;
+    border: 0.1rem solid midnightblue;
+    cursor: pointer;
+    font-weight: bold;
+}
+/*registracija///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7*/
+.forma-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+}
+.forma-login-lista{
+    display: flex;
+    flex-direction: column;
+    width: 55rem;
+    padding: 1.5rem;
+    list-style-type: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 0.3rem;
+}
+.forma-login-lista li{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    list-style-type: none;
+}
+.forma-login-input{
+    padding: 1.5rem;
+    border: 0.1rem #c0c0c0 solid;
+    font-size: 2rem;
+    border-radius: 0.3rem;
+    background-color: white;
+}
+input[type=password] {
+   padding: 1.5rem;
+   border: 0.1rem #c0c0c0 solid;
+   font-size: 2rem;
+   border-radius: 0.3rem;
+   background-color: white;
+}
+.labela{
+    font-weight: bold;
+    color: black;
+    font-size: 1.7rem;
+}
+.registracija-dugme{
+    padding: 2rem;
+    border: none;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 0.3rem;
+}
+.login-dugme{
+    padding: 2rem;
+    border: none;
+    cursor: pointer;
+    background-color: #2a5298;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    font-size: 1.5rem;
+    border-radius: 0.3rem;
+}
+a {
+text-decoration: none;
+}
+
